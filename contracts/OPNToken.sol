@@ -15,7 +15,6 @@ contract OPNToken is Owned {
     // OPN Token variables
     bytes32 internal name;
     bytes8  internal symbol;
-    uint256 internal decimalFactor;
     uint256 internal totalSupply;
     uint256 internal constant decimals = 18;  
     uint256 internal constant tokenSupply = 100000000; //100 million;
@@ -34,8 +33,7 @@ contract OPNToken is Owned {
     constructor() public {
         name = 'OEL Foundation OPN token';
         symbol = 'OPN';
-        decimalFactor = decimals.mul(10);
-        totalSupply = tokenSupply.mul(decimalFactor);
+        totalSupply = tokenSupply.mul(10**decimals);
         owner = msg.sender;
         balances[msg.sender] = totalSupply;    
     } 
